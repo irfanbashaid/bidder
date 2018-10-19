@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row" style="margin-top: 3%;">
+     <div class="col-sm-6"> <img src="../../assets/images/chainflux.png" style="width:60%;height:10%;"></div>
+     <div class="col-sm-6">
+        <div class="row"  style="margin-top: 5%;">
+           <div class="col-sm-4">
+              <button class="btn btn-warning fonttransformation" type="button">You have {{ _credits }} Credits
+              </button>
+           </div>
+           <div class="col-sm-1"></div>
+           <div class="col-sm-3">
+              <button class="btn btn-warning fonttransformation " type="button">Top up credits</button>
+           </div>
+           <div class="col-sm-1"></div>
+           <div class="col-sm-3">
+              <div class="dropdown">
+                 <button class="btn btn-warning fonttransformation dropdown-toggle" type="button" data-toggle="dropdown">My account
+                 <span class="caret"></span></button>
+                 <ul class="dropdown-menu dropdown-menu1 ">
+                    <li><a (click) = "check(5)"><i class="fa fa-user" style="color: #db524c;"></i>&nbsp;&nbsp;My account</a></li>
+                    <li><a (click) = "check(6)" ><i class="fa fa-list" style="color: #db524c;"></i>&nbsp;&nbsp;bid logs</a></li>
+                    <li><a (click) = "check(7)" ><i class="fa fa-trophy" style="color: #db524c;"></i>&nbsp;&nbsp;win history</a></li>
+                    <li><a (click)="onLogout()"> <i class="fa fa-power-off" style="color: #db524c;"></i>&nbsp;&nbsp;logout</a></li>
+                 </ul>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<nav id="mainmenu" style="margin-top: 3%;" class="navbar navbar-default">
+  <div class="container" >
+     <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+     </div>
+     <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+           <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auction home <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                 <li><a (click) = "check(1)">live auction</a></li>
+                 <li><a (click) = "check(2)">closed auction</a></li>
+                 <li><a (click) = "check(3)">upcoming auction</a></li>
+              </ul>
+           </li>
+           <li><a (click) = "check(4)">Meet winners</a></li>
+        </ul>
+     </div>
+  </div>
+</nav>
+<div class="container-fluid" [ngSwitch]="optionselected">
+  <div *ngSwitchCase="1">
+     <app-liveauction></app-liveauction>
+  </div>
+  <div *ngSwitchCase="2">
+     <app-closedauction></app-closedauction>
+  </div>
+  <div *ngSwitchCase="3">
+     <app-upcomingauction></app-upcomingauction>
+  </div>
+  <div *ngSwitchCase="4">
+     <app-meetwinners></app-meetwinners>
+  </div>
+  <div *ngSwitchCase="5">
+     <app-myaccount></app-myaccount>
+  </div>
+  <div *ngSwitchCase="6">
+     <app-bidlog></app-bidlog>
+  </div>
+  <div *ngSwitchCase="7">
+     <app-winhistory></app-winhistory>
+  </div>
+</div>
+<div class="container">
+  <div style="text-align: center">
+  </div>
+</div>

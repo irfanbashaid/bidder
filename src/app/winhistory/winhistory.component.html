@@ -1,0 +1,42 @@
+<div class = "container-fluid">
+        <div class = "row">
+        <div class = "col-sm-2">
+            </div>
+        <div class = "col-sm-8">
+                <div class="heading heading-v1" >
+                        <!-- <h3>Win History</h3> -->
+                        <br>
+     
+                    <div class = "panel panel-u">
+                        <div class="panel-heading text-center" style="padding: 10px 15px; text-transform: uppercase; font-weight: 700; font-size: 16px;">
+                            Win History
+                        </div>
+                        <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>Auction ID</th>
+                                        <th>Product name</th>
+                                        <th>Credits</th>
+                                        <th>Time</th>
+     
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor = "let history of history">
+                                        <td>{{history.auctionid}}</td>
+                                        <td>{{history.productname}}</td>
+                                        <td>{{history.amount}}</td>
+                                        <td>{{history.time}}</td>
+                                        <td></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                    </div>
+                </div>
+        </div>
+        <div class = "col-sm-2">
+            </div>
+            </div>
+     </div>

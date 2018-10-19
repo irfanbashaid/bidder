@@ -1,0 +1,33 @@
+.auction-block {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+ }
+ .auction{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:5px;
+    overflow:hidden;
+ }
+ .panel {
+    border:1px solid #e67e22;
+    margin-top: 15px;
+ }
+ .panel-heading , .btn-warning{
+    background-color:#e67e22;
+ }
+ .form-group{
+    margin-left: 5px;
+ }
+
+ .icon{
+     font-size: 25px;
+     width:50px;
+ }
+ .panel-heading{    
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}

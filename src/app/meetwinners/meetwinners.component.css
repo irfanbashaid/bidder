@@ -1,0 +1,63 @@
+.auction-block {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+ }
+ /* h1{
+    background-color: #eaeaea;
+ } */
+ /* #win{
+    border: 20px solid rgb(31, 117, 133);
+    align-content: center
+ } */
+ h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:50px;
+    color:  #3d4d65;
+ }
+ #borderimg {
+    border: 35px solid #d84800b5;
+    padding: 15px;
+    height: 800px;
+    /* width: 50%; */
+    /* border-image: url(../../assets/images/rndfrm.jfif) 50 round; */
+ }
+ .fa-trophy{
+    font-size: 40px;
+    color:#3d4d65;
+ }
+ .containerone{
+    background-color: whitesmoke;
+   
+}
+
+h1 {
+    color: #666;
+    font-size: 22px;
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align: center;
+}
+
+
+.content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+
+.boxshadow {
+    box-shadow: -5px 0 5px -5px rgba(93, 91, 91, 0.493), 5px 0 5px -5px rgba(93, 91, 91, 0.493),0px 15px 10px -15px rgba(93, 91, 91, 0.493);
+    /* box-shadow: -5px 0 5px -5px #333; */
+}
+
+.c{
+    text-align: center;;
+}
+
+ul{
+    color: #3d4d65;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:20px;
+}

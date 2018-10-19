@@ -1,0 +1,27 @@
+<div class="container boxshadow containerone" style="text-align: center">
+    <h1 class="pull-left">MEET WINNERS</h1>
+ </div>
+ <div class="container content boxshadow">
+    <div class="row">
+       <div class="col-sm-2"></div>
+       <div class="col-sm-8">
+          <div class="c" id="borderimg">
+             <div class="row">
+                <h2>TOP <span id="winnerlistdisplay"></span> Winners</h2>
+                <br><i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;
+                <i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;<i class="fa fa-trophy" aria-hidden="true"></i>&nbsp;
+             </div>
+             <div class="row" style="margin-top: 100px">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                   <ul *ngFor="let win of winners" style="list-style-type:square;">
+                      <li> {{ win.winner_name }} </li>                      
+                   </ul>
+                </div>
+                <div class="col-sm-4"></div>
+             </div>
+          </div>
+       </div>
+       <div class="col-sm-2"></div>
+    </div>
+ </div>

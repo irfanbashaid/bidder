@@ -1,0 +1,52 @@
+.auction{
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:5px;
+    overflow:hidden;
+ }
+ img{
+    text-align: center;
+ }
+ .timer{
+    background-color: #eaeaea;
+    height:65px;
+    width:120px;
+    text-align: center;
+ }
+ .bidbox{
+    background-color: #fdfdfd;
+    border:1px solid #ddd;
+    height:75px;
+    width: 320px;
+    margin-right:50px;
+    text-align: center;
+ }
+ .content{
+    border: 1px solid #ddd;
+    overflow:hidden;
+ }
+ .btn-lg{
+    width:276px;
+ }
+ .tabcontent {
+    display: none;
+    padding: 15px 18px;
+    color: #7a7a7a;
+ }
+ .auction-info li:first-child {
+    border: 0;
+    margin: 0;
+    padding: 0;
+ }
+ .auction-info li {
+    border-top: 1px solid #ddd;
+    padding-top: 8px;
+    margin-top: 8px;
+    line-height: 1.2;
+    list-style: none
+ }
+ li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+ }
+ 

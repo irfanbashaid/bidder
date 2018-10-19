@@ -1,0 +1,71 @@
+<div class="container boxshadow" id="containerone">
+    <h1 class="pull-left">MY INFORMATION</h1>
+  </div>
+  <div class="container content boxshadow">
+    <div class="row">
+       <div class="col-sm-6">
+          <div class="panel panel-default ">
+             <div class="panel-heading"><b>MY INFORMATION</b></div>
+             <div class="panel-body">
+                <form class="form-inline" action="/action_page.php">
+                   <div class="form-group" style="text-align: right"><br>
+                      <label for="text">UserName:</label>
+                      <input type="text"  class="form-control" id="user" value="{{ username }}" autocomplete="off" readonly>
+                      <br><br><label for="email">Email:</label>&nbsp;&nbsp;&nbsp;
+                      <input type="email" class="form-control" id="email" value="{{ emails }}" autocomplete="off" readonly>
+                      <br><br><label for="text">Public Key:</label>&nbsp;&nbsp;&nbsp;
+                      <input type="text"  class="form-control" id="pub" value="{{ publickey }}" autocomplete="off" readonly>
+                      <br><br><label for="text">Account Balance:</label>&nbsp;&nbsp;&nbsp;
+                      <input type="text"  class="form-control" id="accbal" value="{{ balance }} ETH" autocomplete="off" readonly><br><br>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+       <div class="col-sm-6">
+          <div class="panel panel-default">
+             <div class="panel-heading"><b>Change Password</b></div>
+             <div class="panel-body">
+                <form class="form-inline" action="/action_page.php">
+                   <br>
+                   <div class="form-group" style="text-align: right">
+                      <label for="password">Old password:</label>&nbsp;&nbsp;&nbsp;
+                      <input type="password" class="form-control" #oldpassword id="oldpass"  placeholder="Enter Oldpassword">
+                      <br><br><label for="password">New password:</label>&nbsp;&nbsp;&nbsp;
+                      <input type="password" class="form-control" #newpassword id="newpass"  placeholder="Enter Newpassword">
+                      <br><br><label for="password">Confirm password:</label>&nbsp;&nbsp;&nbsp;
+                      <span><input type="password" class="form-control" #confirmpassword id="conpass" (input)="passwordchange(newpassword.value,confirmpassword.value)"  placeholder="Enter Confirmpassword"><span id="passwordmessage"></span></span>
+                   </div>
+                </form>
+              
+                <br><button (click)="changepassword(oldpassword.value,newpassword.value,confirmpassword.value)" class="btn btn-warning" id="changebtn">&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;&nbsp;Change password</button>
+                <br>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="row" >
+       <div class="col-sm-3">
+       </div>
+       <div class="col-sm-6">
+          <div class="panel panel-default">
+             <div class="panel-heading"><b>STATISTICS</b></div>
+             <div class="panel-body">
+                <form class="form-inline" action="/action_page.php">
+                   <br>
+                   <div class="form-group" style="text-align: right">
+                      <label for="number">Auction Participated:</label>
+                      <input type="number" value="{{ paticipatedcount }}" class="form-control" id="Auction"  readonly>
+                      <br><br><label for="number">Auction wons:</label>&nbsp;&nbsp;&nbsp;
+                      <input type="number" value="{{ woncount }}" class="form-control" id="won"  readonly>
+                      <br><br><label for="number">Credits Left:</label>&nbsp;&nbsp;&nbsp;
+                      <input type="number" value="{{ credits }}" class="form-control" id="left" readonly><br><br>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+       <div class="col-sm-3">
+       </div>
+    </div>
+  </div>    

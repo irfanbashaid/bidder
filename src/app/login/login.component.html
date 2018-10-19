@@ -1,0 +1,263 @@
+<div class="container-fluid" id="topof">
+    <div clas="row">
+       <div class="col-sm-12 form-inline" id="header">
+          <br><br>
+          <div class="col-sm-4">
+             <img src="../../assets/images/chainflux.png" style="width:60%;height:10%;">
+          </div>
+          <div clas="col-sm-1">
+          </div>
+          <br>
+          <div class="col-sm-7">
+             <div class = "row">
+                <div class="form-group">
+                   <input type="email" class="form-control " #email id="email" placeholder="Enter email" autocomplete=off>
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                   <input type="password" class="form-control " #password id="password" placeholder="Enter password" >
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                   <input type="password" class="form-control " #privakey id="priv" placeholder="Enter privateKey" >
+                </div>
+                &nbsp;&nbsp;
+                <div class=" btn-group">
+                   <button (click)="login(email.value,password.value,privakey.value)" class="btn btn-warning" id="btn">&nbsp;<i class="fas fa-user"></i>&nbsp;&nbsp;Login</button>
+                </div>
+             </div>
+             <br> 
+             <div class="row">
+                <div class="col-sm-5">
+                   <div class="form-group">
+                   </div>
+                </div>
+                <div class="col-sm-4">
+                   <div class="form-group">
+                      <a  class="forgot-passsword" data-toggle="modal"  data-target="#increase">Forgot password? Click Here</a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <form action="/user/changepassword" method="POST">
+       <div class="modal fade" id="increase" role="dialog">
+          <div class="modal-dialog modal-sm">
+             <div class="modal-content">
+                <div class="modal-header" >
+                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   <h4 class="modal-title" >Forgot Password</h4>
+                </div>
+                <div class="modal-body" >
+                   <!-- <input type="hidden" name="email" #email value="{{emails}}"> -->
+                   <input type="email" class="form-control" name="email" #email1 placeholder="Email" required minlength="4" autocomplete=off>&nbsp;
+                   <input type="password" class="form-control" placeholder="Private Key" #privatekey  required minlength="4">&nbsp;
+                   <input type="password" class="form-control" name="newpassword" #newpass placeholder="New password" required minlength="4" >&nbsp;
+                   <p id="passwordmessage"></p>
+                   <div style="text-align: center">
+                      <button   type="submit"class="btn btn-warning submit" (click)="forgotPassword(email1.value,privatekey.value,newpass.value)" value="change">submit</button>
+                      &nbsp;<a class="btn btn-danger"   data-dismiss="modal">cancel</a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </form>
+  </div>
+  <br><Br>
+  <div class="container-fluid" id="grad1">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-6">
+             <div class="banner-content">
+                <div class="infographic">
+                   <figure id="img">
+                      <img src="../../assets/images/download.png" style="width:310px;height:250px;">
+                   </figure>
+                   <div class="win-big">
+                      WIN  <span>Big</span>
+                   </div>
+                   <!-- <div class="container"> -->
+                </div>
+             </div>
+             <div class="col-sm-12 ">
+                <marquee width="100%" direction="left" height="30%">
+                   <span class="blinking">Buy-Now Discounts Assured...!</span>
+                  </marquee>
+             </div>
+          </div>
+          <!-- firsthalf -->
+  
+          <div class="container">
+             <div  id="check" class="col-sm-6">
+               <br>
+                <div class="account-verification">
+                   <div class="panel panel-login">
+                      <div class="panel-heading">
+                         <div id="text">
+                            <div class="col-xs-6" id="co">
+                               <a  class="active" id="login-form-link">Signup</a>
+                            </div>
+                            <div class="col-xs-6" id="co">
+                               <a (click)="create()" id="register-form-link">Create Account</a>
+                            </div>
+                         </div>
+                         <hr>
+                      </div>
+                   </div>
+                   <div class="panel-body">
+                      <!-- <div class="row"> -->
+                      <div class="col-sm-12">
+                         <form id="login-form"  method="post" role="form" style="display: block;">
+                            <div class="form-group">
+                               <!-- <div class="row"> -->
+                                 <br><br>
+                               <div class="signup-form">
+                                  <p *ngIf="show_error" style="color: white">{{error_message}}</p>
+                                  <input type="text" placeholder="Enter Username" class="form-control"#username autocomplete="off"><br>
+                                  <input type="email" placeholder="Enter email" class="form-control" #emailid autocomplete="off"><br>
+                                  <input type="password" placeholder="Enter password" class="form-control" #passwd autocomplete="off"><br> 
+                                  <input type="password" placeholder="Enter privateKey" class="form-control" #prikey autocomplete="off"><br><br>
+                                  <button class="btn btn-warning" id="btn" (click)="sign_up(username.value,emailid.value,passwd.value,prikey.value)">&nbsp;<i class="fas fa-user" ></i>&nbsp;&nbsp;signup</button>
+                               </div>
+                               <!-- </div> -->
+                            </div>
+                         </form>
+                         <form id="register-form"  method="post" role="form" style="display: none;">
+                            <div class="form-group">
+                               <!-- <div  *ngIf="show_account_details"  class="col-sm-6"> -->
+                               <div class="account-details" >
+                                  <div class="signup-form" style="text-align:left">
+                                     <br>
+                                     <p *ngIf="show_error" style="color: white">{{error_message}}</p>
+                                     <input type="text" placeholder="Enter Username" class="form-control"#username autocomplete="off"><br>
+                                     <input type="email" placeholder="Enter email" class="form-control" #emailid autocomplete="off"><br>
+                                     <input type="password" placeholder="Enter password" class="form-control" #passwd autocomplete="off">
+                                     <h4>{{text1}}</h4>
+                                     <input type="text" class="form-control" #prikey value={{private_key}} placeholder="Address"readonly/>
+                                     <h4>{{text2}}</h4>
+                                     <input type="text" class="form-control" value={{account_address}} placeholder="Address"readonly/>
+                                     <h4>Keep this account details it is needed to login</h4>
+                                     <br>
+                                     <button class="btn btn-warning" id="btn" (click)="sign_up(username.value,emailid.value,passwd.value,prikey.value)">&nbsp;<i class="fas fa-user" ></i>&nbsp;&nbsp;signup</button>
+                                  </div>
+                               </div>
+                            </div>
+                            <!-- </div>  -->
+                            <div  *ngIf="show_account_details"  class="col-sm-6">
+                               <div class="account-details" >
+                               </div>
+                            </div>
+                         </form>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  
+  
+  <br><br>
+    <div class="container-fluid" id="move" style="height: 600px;overflow: auto;text-align: center;text-transform: uppercase" *ngIf="!this.grab.imgshow">
+        <div>
+            <span class="blink">RISKFREE ONLINE AUCTIONS, WIN or BUY BRANDED NEW PRODUCTS </span>
+           </div>
+           <br>
+            <div class="hit-the-floor">
+          <h2>AUCTIONS</h2>
+        </div>
+       
+          <!-- <marquee width="100%" direction="right" height="15%">
+              <span class="blinking">Hurrry Up </span>
+          </marquee>
+          <marquee width="100%" direction="left" height="15%">
+              <span class="blinking">Hurrry Up </span>
+          </marquee> -->
+    
+    
+         <div  *ngFor="let image of images" >
+            <div class="test" data-target="#move" data-slide-to="this.images.length" class="active">
+           <div class="col-sm-4"  style="margin-top: 20px;text-align: center;">
+              <div class="row">
+                 <div class="col-sm-9"  style="margin-top:25px">
+                    <div>
+                       <div class="card">
+                          <div class="card-header">
+                             <p>{{image.ProductName}}</p>
+                          </div>
+                          <hr>
+                          <div class="card-body">
+                             <div class="card-body" style="text-align: center">
+                                <img   a (click)="this.grabit.imgshow=!this.grabit.imgshow;" class="card-img-top" src={{image.ipfshash}} style="height: 250px;width: 250px" >
+                             </div>
+                           
+                             <div class="bid-credit-row">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                           <span class="auction-id" >Auction ID:{{image.Auction_Id}}</span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a class="bid-credit" title="Bid Type">{{image.bidIncrement}}</a>
+                                    </div>
+                                </div>
+                               
+                               
+                            </div>
+                             <div class="bid-row cf">
+                                <span class="bid-price">
+                                <label id="Price16720">{{image.Amount}} GRBT</label>
+                                </span>                              
+                             </div>
+                             <hr>
+                             <div class="card-footer">
+                                <button routerLink="/login" input type="submit"  class="btn btn-warning" id="btn" (click)="check()">&nbsp;&nbsp;&nbsp;BID NOW</button>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                </div>
+           </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- <div id="demo" class="carousel slide" data-ride="carousel">
+          <ul class="carousel-indicators mb-0 pb-0">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+      <div class="carousel-inner no-padding my-5">
+          <div class="carousel-item active">
+            <div class="col-xs-4 col-sm-4 col-md-4">
+              <a href="#" onclick=abc(this) class="slider_info">
+                <img class="img-fluid card-img-top" src="http://via.placeholder.com/300x300?text=1">
+                <div class="card-img-overlay t_img">
+                  <span class="float-left text-uppercase">article</span>
+                  <span class="float-right text-uppercase">2345 views</span>
+                </div>
+              </a>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nesciunt quam obcaecati maiores atque labore fugiat tenetur tempore veritatis temporibus!</p>
+      
+            </div>
+            </div>
+            </div>
+            </div>
+  
+       -->
+       
+       
+  
+  <ngx-spinner
+    bdColor="#4d4dff"
+    size="medium"
+    color="#fff"
+    type="pacman">
+    <p style="font-size: 20px; color: white">Loading...</p>
+  </ngx-spinner>
+  <!-- ball-clip-rotate-pulse,pacman,ball-climbing-dot,ball-spin-clockwise-fade -->
+  <!-- rgba(51,51,51,0.8) -->

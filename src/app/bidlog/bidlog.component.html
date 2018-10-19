@@ -1,0 +1,38 @@
+<div class="container boxshadow" id="containerone">
+    <h1 class="pull-left">Bid History</h1>
+   </div>
+   <div class="container content boxshadow">
+    <div class="row">
+      <div class="col-sm-2">
+   
+      </div>
+       <div class="col-sm-8">
+          <div class="panel panel-warning">
+             <div class="panel-heading">BID LOG</div>
+             <div class="panel-body">
+                <table class="table table-bordered">
+                   <thead>
+                      <tr>
+                         <th>Auction ID</th>
+                         <th>Product Name</th>
+                         <th>Amount</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr *ngFor = "let history of bidhistory">
+                         <td>{{history.auctionid}}</td>
+                         <td>{{history.productname}}</td>
+                         <td>{{history.amount}}</td>
+                         <td></td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+          </div>
+       </div>
+       <div class="col-sm-2">
+   
+        </div>
+   
+    </div>
+   </div>

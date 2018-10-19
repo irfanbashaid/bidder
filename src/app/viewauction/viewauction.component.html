@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-6 auction" >
+             <div class="container" >
+                <h1>Title</h1>
+                <img id="detimg" class="card-img-top" src="../../assets/images/91+OxUea0JL._SY355_.jpg" alt="Card image cap">
+             </div>
+          </div>
+          <div class="col-sm-6 ">
+             <form class="form-inline">
+                <div class="timer form-group">
+                   <p>Time</p>
+                   <P>Username</P>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="bidbox form-group">
+                   <br><button routerLink="/login"  class="btn btn-warning" id="btn">&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;&nbsp;BID NOW</button>
+                </div>
+             </form>
+             <br><br>
+             <div class="content">
+                <div class="btn-group auction" style="text-align:center">
+                   <button type="button" class="btn btn-warning btn-lg" id="acif" >Auction Information</button>
+                   <button type="button" class="btn btn-warning btn-lg" id="bidhis">Bidding History</button>
+                </div>
+                <div class="tabcontent" id="auction-information"  id="acif"style="display: block;">
+                   <div class="auction-info">
+                      <ul>
+                         <li> Auction ID
+                            <span>BB
+                            <span id="Body_lblAuctionID">16753</span></span>
+                         </li>
+                         <li> Price
+                            <span>Rs&nbsp;
+                            <span id="Body_lblPrice"> 3499.00</span></span>
+                         </li>
+                         <li> Bid Reset Time
+                            <span>
+                            <span id="Body_lblBidReset">10 Second</span></span>
+                         </li>
+                         <li>Credit used per bid
+                            <span>
+                            <span id="Body_lblPerBidcredit">4x</span></span>
+                         </li>
+                         <li> Auction Type
+                            <span>
+                            <span id="Body_lblAuctionType">20 Paisa</span></span>
+                         </li>
+                      </ul>
+                   </div>
+                   <div class="bidding history" id="bidhis">
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

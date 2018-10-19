@@ -1,0 +1,67 @@
+<div class = "container-fluid" >
+    <div class = "row">
+    <div class="col-sm-6 auction" style="text-align: center">
+    <div class="panel panel-default ">
+      <div class="panel-heading">Overall Auctions</div>
+      <div class="panel-body">
+         <input type="text" id="myInput" (keyup)="myFunction()" placeholder="Search for productNames.." title="Type in a name">
+         
+        <form class="form-inline" action="/action_page.php">
+          <div class="form-group" style="text-align: center">
+            
+            <table class="table table-striped" id = "select">
+                <thead class="tablecolor" >
+                    <tr>
+                      <th>Auction Id</th>&nbsp;&nbsp;
+                      <th>Product Name </th>&nbsp;&nbsp;
+                      <th></th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let element of auction">
+                      <td>{{ element.auctionId }}</td>&nbsp;&nbsp;
+                      <td>{{ element.productname }}</td>
+                      <td><button type="button" class="btn btn-warning " value="select" (click)="storeaid( element.auctionId )">Select</button></td>
+                     </tr>
+                </tbody>
+              </table>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    
+    
+    
+    
+    <div class="col-sm-6 auction" style="text-align: center">
+    <div class="panel panel-default ">
+      <div class="panel-heading">Displayed Auctions</div>
+      <div class="panel-body">
+        <form class="form-inline" action="/action_page.php">
+          <div class="form-group" style="text-align: center">
+            <table  class="table table-striped" id = "select">
+                <thead class="tablecolor ">
+                    <tr>
+                      <th>Auction Id</th>&nbsp;&nbsp;
+                      <th>Product Name </th>&nbsp;&nbsp;
+                      <th></th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let element of selected_aid">
+                      <td>{{ element.auctionId }}</td>&nbsp;&nbsp;
+                      <td>{{ element.productname }}</td>
+                      <td><button type="button" class="btn btn-warning " value="select" (click)="storeaid(element.auctionId)">Remove</button></td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>

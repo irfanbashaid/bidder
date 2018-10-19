@@ -1,0 +1,17 @@
+.heading {
+    text-align: center;
+}
+
+#mycard{
+    text-align:center;
+    color: black;
+    font-size: 30px;
+    background-color: antiquewhite;
+}
+.panel-heading {
+    background-color: orange;
+    width:800px;
+}
+.table{
+    width:770px; 
+}

@@ -1,0 +1,59 @@
+<div class="container-fluid" style="height: 600px;overflow: auto;text-align: center;text-transform: uppercase" *ngIf="!this.grabit.imgshow">
+    <div  *ngFor="let i of images" >
+       <div class="col-sm-4"  style="margin-top: 20px;text-align: center;">
+          <div class="row">
+             <div class="col-sm-10"  style="margin-top:25px">
+                <div>
+                   <div class="card">
+                      <div class="card-header">
+                         <p>{{i.ProductName}}</p>
+                      </div>
+                      <hr>
+                      <div class="card-body">
+                         <h5 class="card-title">Base Price:{{ i.Amount }} GRBT</h5>
+                         <div class="card-body" style="text-align: center">
+                            <img   a (click)="this.grabit.imgshow=!this.grabit.imgshow;" class="card-img-top" src={{i.Url}} style="height: 250px;width: 250px" alt="Card image cap">
+                         </div>
+                         <div class="bid-credit-row">
+                             <div class="row">
+                                 <div class="col-sm-6">
+                                        <span class="auction-id" >Auction ID:{{i.Auction_Id}}</span>
+                                 </div>
+                                 <div class="col-sm-6">
+                                        <a class="bid-credit" title="Bid Type">{{i.bidIncrement}}X</a>
+                                 </div>
+                             </div>
+                            
+                            
+                         </div>
+                         <div class="bid-row cf">
+                            <span class="bid-price">GRBT:
+                            <label id="Price16720"> {{i.last_Bidded_amount}}</label>
+                            </span>
+                            <div class="bid-status">
+                               <div id="dvzoom16720" class="">
+                                    {{hour_shower[i.Auction_Id]|number:'2.0'}}:{{min_shower[i.Auction_Id]|number:'2.0'}}:{{sec_shower[i.Auction_Id]|number:'2.0'}}
+                                  <!-- <span id="timer16720" class="timer" data-transition="customZoomTrans2" style="color: rgb(61, 77, 101);">{{i.Time}}</span> -->
+                               </div>
+                               <span class="bidder-name">
+                               <label id="UserName16720">{{i.Bidder_name}}</label>
+                               <label id="dt16720" style="display: none;">2018,9,9,14,30,0,0</label>
+                               </span>
+                            </div>
+                         </div>
+                         <hr>
+                         <div class="card-footer">
+                            <button (click)="manualBidding(i.Auction_Id)" class="btn btn-warning" id="btn">&nbsp;&nbsp;&nbsp;BID {{i.buttonbid}} GRBT</button>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-sm-2"></div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div *ngIf="this.grabit.imgshow">
+    <app-viewauction></app-viewauction>
+ </div>

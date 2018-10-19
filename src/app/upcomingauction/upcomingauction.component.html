@@ -1,0 +1,50 @@
+<div class="container-fluid"  style="height: 600px;overflow: auto;text-align: center;text-transform: uppercase" *ngIf="!this.grabit.imgshow">
+    <div  *ngFor="let image of images" >
+       <div class="col-sm-4"  style="margin-top: 20px;text-align: center;">
+          <div class="row">
+             <div class="col-sm-10"  style="margin-top:25px">
+                <div>
+                   <div class="card">
+                      <div class="card-header">
+                         <p>{{image.ProductName}}</p>
+                      </div>
+                      <hr>
+                      <div class="card-body">
+                            <h5 class="card-title">{{ image.Amount }} GRBT</h5>
+                         <div class="card-body" style="text-align: center">
+                            <img   a (click)="this.grabit.imgshow=!this.grabit.imgshow;" class="card-img-top" src={{image.Url}} style="height: 250px;width: 250px" alt="Card image cap">
+                         </div>
+                         <div class="bid-credit-row">
+                            <span class="auction-id">Auction ID:{{image.Auction_Id}}</span>
+                            <!-- <a class="bid-credit" title="Number of Require Credits Per BID">5x</a> -->
+                         </div>
+                         <div class="bid-credit-row2">
+                            <span class="bid-price">Starts AT
+                            <label id="Price16720">{{hour_shower[image.Auction_Id]|number:'2.0'}}:{{min_shower[image.Auction_Id]|number:'2.0'}}:{{sec_shower[image.Auction_Id]|number:'2.0'}}</label>
+                            </span>
+                            <!-- <div class="bid-status">
+                               <div id="dvzoom16720" class="">
+                                  <span id="timer16720" class="timer" data-transition="customZoomTrans2" style="color: rgb(61, 77, 101);">{{image.Time}}</span>
+                               </div>
+                               <span class="bidder-name">
+                               <label id="UserName16720">{{image.Bidder_name}}</label>
+                               <label id="dt16720" style="display: none;">2018,9,9,14,30,0,0</label>
+                               </span>
+                            </div> -->
+                         </div>
+                         <hr>
+                         <div class="card-footer">
+                           
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-sm-2"></div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div *ngIf="this.grabit.imgshow">
+    <app-viewauction></app-viewauction>
+ </div>

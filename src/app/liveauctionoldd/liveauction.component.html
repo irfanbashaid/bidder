@@ -1,0 +1,155 @@
+<div class="container-fluid" *ngIf="this.grabit.imgshow">
+    <div class="heading heading-v1">
+        <h3>Live Auctions</h3>
+    </div>
+
+    <br><br>
+  
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+     
+      <div class="col-sm-3 auction-block" id="last">
+      
+          <div class="card"> 
+              <!-- style="margin-bottom: 10px; height: 613px;" -->
+            <div class="card-header">
+              <p>Product name</p>
+            </div>
+            <hr>
+            <div class="card-body">
+              <h5 class="card-title">Amount</h5>
+              <div class="card-body"  id="view" style="text-align: center">
+              <img a (click)="changestate()" class="card-img-top" src="../../assets/images/ibox.jfif" alt="Card image cap">
+            </div>
+            <div class="bid-credit-row">
+                <span class="auction-id">Auction ID. BB16720</span>
+                <a class="bid-credit" title="Number of Require Credits Per BID">5x</a>
+            </div>
+            <div class="bid-row cf">
+                <span class="bid-price">₹
+                                             <label id="Price16720">1.80</label>
+                </span>
+                <div class="bid-status">
+                    <div id="dvzoom16720" class="">
+                        <span id="timer16720" class="timer" data-transition="customZoomTrans2" style="color: rgb(61, 77, 101);">3:50:58</span>
+                    </div>
+                    <span class="bidder-name">
+                        <label id="UserName16720">Ramji129738</label>
+                        <label id="dt16720" style="display: none;">2018,9,9,14,30,0,0</label>
+                    </span>
+                </div>
+            </div>
+    
+            <hr>
+            <div class="card-footer">
+                <button routerLink="/login" input type="submit"  class="btn btn-warning" id="btn">&nbsp;&nbsp;&nbsp;BID NOW</button>
+            </div>
+             
+             
+            </div>
+          </div>
+      </div>
+      <div class="col-sm-1">
+        
+      </div>
+   
+       <div class="col-sm-3 auction-block" id="last">
+      
+          <div class="card"> 
+              <!-- style="margin-bottom: 10px; height: 613px;" -->
+            <div class="card-header">
+              <p>Product name</p>
+            </div>
+            <hr>
+            <div class="card-body">
+              <h5 class="card-title">Amount</h5>
+              <div class="card-body" style="text-align: center">
+              <img class="card-img-top" src="../../assets/images/ibox.jfif" alt="Card image cap">
+            </div>
+            <div class="bid-credit-row">
+                <span class="auction-id">Auction ID. BB16720</span>
+                <a class="bid-credit" title="Number of Require Credits Per BID">5x</a>
+            </div>
+            <div class="bid-row cf">
+                <span class="bid-price">₹
+                                             <label id="Price16720">1.80</label>
+                </span>
+                <div class="bid-status">
+                    <div id="dvzoom16720" class="">
+                        <span id="timer16720" class="timer" data-transition="customZoomTrans2" style="color: rgb(61, 77, 101);">3:50:58</span>
+                    </div>
+                    <span class="bidder-name">
+                        <label id="UserName16720">Ramji129738</label>
+                        <label id="dt16720" style="display: none;">2018,9,9,14,30,0,0</label>
+                    </span>
+                </div>
+            </div>
+    
+            <hr>
+            <div class="card-footer">
+                <!-- <a>Account:</a><input type="text" class="form-control" value={{address}} placeholder="Address"readonly/><br> -->
+                <button routerLink="/login" input type="submit"  class="btn btn-warning" id="btn">&nbsp;&nbsp;&nbsp;BID NOW</button>
+            </div>
+             
+             
+            </div>
+          </div>
+      </div>
+      <div class="col-sm-1">
+        
+      </div>
+      <div class="col-sm-3 auction-block" id="last">
+      
+          <div class="card"> 
+              <!-- style="margin-bottom: 10px; height: 613px;" -->
+            <div class="card-header">
+              <p>Product name</p>
+            </div>
+            <hr>
+            <div class="card-body">
+              <h5 class="card-title">Amount</h5>
+              <div class="card-body" style="text-align: center">
+              <img class="card-img-top" src="../../assets/images/ibox.jfif"alt="Card image cap">
+            </div>
+            <div class="bid-credit-row">
+                <span class="auction-id">Auction ID. BB16720</span>
+                <a class="bid-credit" title="Number of Require Credits Per BID">5x</a>
+            </div>
+            <div class="bid-row cf">
+                <span class="bid-price">₹
+                                             <label id="Price16720">1.80</label>
+                </span>
+                <div class="bid-status">
+                    <div id="dvzoom16720" class="">
+                        <span id="timer16720" class="timer" data-transition="customZoomTrans2" style="color: rgb(61, 77, 101);">3:50:58</span>
+                    </div>
+                    <span class="bidder-name">
+                        <label id="UserName16720">Ramji129738</label>
+                        <label id="dt16720" style="display: none;">2018,9,9,14,30,0,0</label>
+                    </span>
+                </div>
+            </div>
+    
+            <hr>
+            <div class="card-footer">
+                <!-- <a>Account:</a><input type="text" class="form-control" value={{address}} placeholder="Address"readonly/><br> -->
+                <button routerLink="/login" input type="submit"  class="btn btn-warning" id="btn">&nbsp;&nbsp;&nbsp;BID NOW</button>
+            </div>
+             
+             
+            </div>
+          </div>
+      </div>
+      <div class="col-sm-1">
+        
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!this.grabit.imgshow">
+    <app-viewauction></app-viewauction>
+  </div>
+  
+  
+  
+  
