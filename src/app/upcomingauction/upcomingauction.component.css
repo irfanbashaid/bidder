@@ -29,7 +29,14 @@
     float: right;
  }
  
- 
+ .subhead{
+    color: orangered
+}
+
+a, u {
+    text-decoration: none;
+}
+
  
  .btn-warning{
     background: #ff9948;

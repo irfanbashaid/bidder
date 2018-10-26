@@ -1,25 +1,39 @@
-<div class="col-sm-12 auction">
-    <div class="panel panel-default">
-       <div class="panel-heading"><b>Change Ownership</b></div>
-       <div class="panel-body" style="text-align:center">
-          <form class="form-inline" action="/action_page.php">
-             <div class="form-group">
-                <div class="row">
-                   <div class="col-sm-4">
-                      <br><br><label for="text">Current Owner</label>&nbsp;&nbsp;&nbsp;
-                      <input type="text"  class="form-control" id="addr" autocomplete="off" readonly>
-                   </div>
-                   <div class="col-sm-4 icon" >
-                      <br><br> <i class="fas fa-arrow-right"></i>
-                   </div>
-                   <div class="col-sm-4">
-                      <br><br>  <label for="text">To Address</label>&nbsp;&nbsp;&nbsp;
-                      <input type="text" class="form-control" id="toadd"  placeholder="Enter To Address">
-                   </div>
-                </div>
+<div class="col-sm-1"></div>
+<div class="col-sm-10 auction">
+   <div class="panel panel-default">
+      <div class="panel-heading"><b>Change Ownership</b></div>
+      <div class="panel-body" style="text-align:center">
+          <div class="row">
+<div class="col-sm-2">
+
+</div>
+<div class="col-sm-8">
+   <form>
+       <div class="row">
+
+                        <div class="col-sm-5">
+                           <label for="text">Current Owner</label>&nbsp;&nbsp;&nbsp;
+                           <input type="text"  class="form-control" id="addr" autocomplete="off" readonly>
+                        </div>
+                        <div class="col-sm-2 icon" >
+                           <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="col-sm-5">
+                       <label for="text">To Address</label>&nbsp;&nbsp;&nbsp;
+                           <input type="text" class="form-control" id="toadd"  placeholder="Enter To Address">
+                        </div>
              </div>
-          </form>
-          <br><button routerLink="/login"  class="btn btn-warning" id="btn">&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;&nbsp;Change Owner</button>
-       </div>
-    </div>
- </div>
+           </form>
+             <div class="row" style="text-align: center">
+               <br><button routerLink="/login"  class="btn btn-warning" id="btn">&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;&nbsp;Change Owner</button>
+             </div>
+</div>
+<div class="col-sm-2"></div>
+          </div>
+
+   </div>
+   </div>
+</div>
+<div><ngx-spinner></ngx-spinner></div>
+
+

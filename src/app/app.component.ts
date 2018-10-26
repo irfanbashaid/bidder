@@ -8,8 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'GrabItAuction';
 
-
-   
   //  hourglass() {
   //   var a;
   //   a = document.getElementById("target");
@@ -32,15 +30,8 @@ export class AppComponent {
   //     document.getElementById("project").hidden=false;
   //     document.body.style.backgroundColor = "white";
   //   }, 5000);
-    
-      
   // }
 
-  // ngOnInit() {
-  //   document.getElementById("project").hidden=true;
-
-  //   this.hourglass();
-  // }   
   chargebattery() {
     var a;
     a = document.getElementById("target");
@@ -58,11 +49,10 @@ export class AppComponent {
       }
       timer--;
     }, 1000);
- 
   }
  
   ngOnInit() {
     document.getElementById("mainid").hidden=true;
     this.chargebattery();
   }
-  }
+}

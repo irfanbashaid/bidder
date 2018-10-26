@@ -3,7 +3,7 @@
        <div class="col-sm-12 form-inline" id="header">
           <br><br>
           <div class="col-sm-4">
-             <img src="../../assets/images/chainflux.png" style="width:60%;height:10%;">
+             <img src="../../assets/chainflux.png" style="width:60%;height:10%;">
           </div>
           <div clas="col-sm-1">
           </div>
@@ -56,7 +56,7 @@
                    <input type="password" class="form-control" name="newpassword" #newpass placeholder="New password" required minlength="4" >&nbsp;
                    <p id="passwordmessage"></p>
                    <div style="text-align: center">
-                      <button   type="submit"class="btn btn-warning submit" (click)="forgotPassword(email1.value,privatekey.value,newpass.value)" value="change">submit</button>
+                      <button   type="submit"class="btn btn-warning submit" (click)="forgotpassword(email1.value,privatekey.value,newpass.value)" value="change">submit</button>
                       &nbsp;<a class="btn btn-danger"   data-dismiss="modal">cancel</a>
                    </div>
                 </div>
@@ -66,102 +66,160 @@
     </form>
   </div>
   <br><Br>
-  <div class="container-fluid" id="grad1">
-    <div class="container">
-       <div class="row">
-          <div class="col-sm-6">
-             <div class="banner-content">
-                <div class="infographic">
-                   <figure id="img">
-                      <img src="../../assets/images/download.png" style="width:310px;height:250px;">
-                   </figure>
-                   <div class="win-big">
-                      WIN  <span>Big</span>
-                   </div>
-                   <!-- <div class="container"> -->
-                </div>
-             </div>
-             <div class="col-sm-12 ">
-                <marquee width="100%" direction="left" height="30%">
-                   <span class="blinking">Buy-Now Discounts Assured...!</span>
-                  </marquee>
-             </div>
-          </div>
-          <!-- firsthalf -->
-  
-          <div class="container">
-             <div  id="check" class="col-sm-6">
-               <br>
-                <div class="account-verification">
-                   <div class="panel panel-login">
-                      <div class="panel-heading">
-                         <div id="text">
-                            <div class="col-xs-6" id="co">
-                               <a  class="active" id="login-form-link">Signup</a>
-                            </div>
-                            <div class="col-xs-6" id="co">
-                               <a (click)="create()" id="register-form-link">Create Account</a>
-                            </div>
+    <div class="container-fluid" id="grad1">
+      <!-- <div class="container"> -->
+         <div class="row">
+            <div class="col-sm-5">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-8">
+                  <div class="banner-content">
+                      <div class="infographic">
+                         <figure id="img">
+                            <img src="../../assets/images/download.png" style="width:310px;height:250px;">
+                         </figure>
+                         <div class="win-big">
+                            WIN  <span>Big</span>
                          </div>
-                         <hr>
+                         <!-- <div class="container"> -->
                       </div>
                    </div>
-                   <div class="panel-body">
-                      <!-- <div class="row"> -->
-                      <div class="col-sm-12">
-                         <form id="login-form"  method="post" role="form" style="display: block;">
-                            <div class="form-group">
-                               <!-- <div class="row"> -->
+              </div>
+             
+               <div class="col-sm-12 ">
+                  <marquee width="100%" direction="left" height="30%">
+                     <span class="blinking">Buy-Now Discounts Assured...!</span>
+                    </marquee>
+               </div>
+            </div>
+            <!-- firsthalf -->
+    
+            <!-- <div class="container-fluid"> -->
+               <div  id="check" class="col-sm-6">
+                 <br>
+                 <div class="row">
+                   <div class="col-sm-2"></div>     
+                   <div class="col-sm-9">
+                      <div class="account-verification">
+                          <div class="panel panel-login">
+                             <div class="panel-heading">
+                                <div id="text" >
+                                 Sign Up
+                                </div>
+                                <hr>
+                             </div>
+                          </div>
+                          <div class="panel-body">
+                             <!-- <div class="row"> -->
+                             <div class="col-sm-12">
+                               <div *ngIf="!show_create_eth_account && !show_signup_">
+                               <div class="col-sm-12" id="top" >
+                                 Already have a Ethereum Account
                                  <br><br>
-                               <div class="signup-form">
-                                  <p *ngIf="show_error" style="color: white">{{error_message}}</p>
-                                  <input type="text" placeholder="Enter Username" class="form-control"#username autocomplete="off"><br>
-                                  <input type="email" placeholder="Enter email" class="form-control" #emailid autocomplete="off"><br>
-                                  <input type="password" placeholder="Enter password" class="form-control" #passwd autocomplete="off"><br> 
-                                  <input type="password" placeholder="Enter privateKey" class="form-control" #prikey autocomplete="off"><br><br>
-                                  <button class="btn btn-warning" id="btn" (click)="sign_up(username.value,emailid.value,passwd.value,prikey.value)">&nbsp;<i class="fas fa-user" ></i>&nbsp;&nbsp;signup</button>
+                                  <button class="btn btn-warning" (click)="showCreateAccount(1)"  id="login-form-link">click here</button>
                                </div>
-                               <!-- </div> -->
-                            </div>
-                         </form>
-                         <form id="register-form"  method="post" role="form" style="display: none;">
-                            <div class="form-group">
-                               <!-- <div  *ngIf="show_account_details"  class="col-sm-6"> -->
-                               <div class="account-details" >
-                                  <div class="signup-form" style="text-align:left">
-                                     <br>
-                                     <p *ngIf="show_error" style="color: white">{{error_message}}</p>
-                                     <input type="text" placeholder="Enter Username" class="form-control"#username autocomplete="off"><br>
-                                     <input type="email" placeholder="Enter email" class="form-control" #emailid autocomplete="off"><br>
-                                     <input type="password" placeholder="Enter password" class="form-control" #passwd autocomplete="off">
-                                     <h4>{{text1}}</h4>
-                                     <input type="text" class="form-control" #prikey value={{private_key}} placeholder="Address"readonly/>
-                                     <h4>{{text2}}</h4>
-                                     <input type="text" class="form-control" value={{account_address}} placeholder="Address"readonly/>
-                                     <h4>Keep this account details it is needed to login</h4>
-                                     <br>
-                                     <button class="btn btn-warning" id="btn" (click)="sign_up(username.value,emailid.value,passwd.value,prikey.value)">&nbsp;<i class="fas fa-user" ></i>&nbsp;&nbsp;signup</button>
-                                  </div>
+                               <div class="col-sm-12" id="top" >
+                                 Don't have a Ethereum Account
+                                 <br><br>
+                                 <button class="btn btn-warning" (click)="showCreateAccount(2);create();" id="register-form-link">click here</button>
                                </div>
-                            </div>
-                            <!-- </div>  -->
-                            <div  *ngIf="show_account_details"  class="col-sm-6">
-                               <div class="account-details" >
-                               </div>
-                            </div>
-                         </form>
-                      </div>
+                              </div>
+                               <a (click)="showCreateAccount(3)" *ngIf=" show_create_eth_account || show_signup_ "><i class="fa fa-angle-left" style="text-align: left;color: white;font-size: 30px" aria-hidden="true"></i></a>
+
+                                <form id="login-form" *ngIf="show_signup_ && !show_create_eth_account"  method="post" role="form" style="display: block;">
+                                   <div class="form-group">
+                                     
+                                        <br><br>
+                                      <div class="signup-form">
+                                        <div class="row">
+                                          <div class="col-sm-1"></div>
+                                          <div class="col-sm-10">
+                                             <p *ngIf="show_error" style="color: white">{{error_message}}</p>
+                                             <input type="text" placeholder="Enter Username" class="form-control"#usernname autocomplete="off"><br>
+                                             <input type="email" placeholder="Enter email" class="form-control" #emailiid autocomplete="off"><br>
+                                             <input type="password" placeholder="Enter password" class="form-control" #passswd autocomplete="off"><br> 
+                                             <input type="password" placeholder="Enter privateKey" class="form-control" #priikey autocomplete="off"><br><br>
+                                             <button class="btn btn-warning"  (click)="sign_up(usernname.value,emailiid.value,passswd.value,priikey.value)">&nbsp;<i class="fas fa-user" ></i>&nbsp;&nbsp;signup</button>
+                                          </div>
+                                          <div class="col-sm-1"></div>
+                                        </div>
+                                         
+                                      </div>
+                                     
+                                   </div>
+                                </form>
+                                <form id="register-form" *ngIf="show_create_eth_account && !show_signup_"  method="post" role="form" style="display: block;">
+                                   <div class="form-group">
+                                    
+                                     
+                                   
+                                      <div class="account-details" >
+                                         <div class="signup-form" style="text-align:center">
+                                            <p *ngIf="show_error" style="color: white">{{error_message}}</p>
+                                            <div class="row">
+                                              <div class="col-sm-1"></div>
+                                              <div class="col-sm-10">
+                                                  <input type="text" placeholder="Enter Username" class="form-control"#username autocomplete="off"><br>
+                                              
+                                                  <input type="email" placeholder="Enter email" class="form-control" #emailid autocomplete="off"><br>
+                                              <input type="password" placeholder="Enter password" class="form-control" #passwd autocomplete="off"><br>
+                                              <!-- <h4>Keep this account details it is needed to login</h4><br> -->
+                                              <!-- <h4>{{text1}}</h4><br> -->
+                                              <label style="color: red">! Please copy the below private key somewhere safe</label>
+                                              <input type="text" class="form-control" #prikey value={{private_key}} placeholder="Address"readonly/><br>
+                                              <button class="btn btn-warning" style="margin-top:20px;margin-left:27px;" id="btn" (click)="sign_up(username.value,emailid.value,passwd.value,prikey.value)">&nbsp;<i class="fas fa-user" ></i>&nbsp;&nbsp;signup</button>
+                                           
+                                              </div>
+                                                   
+                                         </div>
+                                         <br>
+                                         <!-- <div class="col-sm-12">
+                                            <h4>Keep this account details it is needed to login</h4>
+                                        </div> -->
+                                         <!-- <div class="row" style="margin-top: 30px">
+                                           <div class="col-sm-6">
+                                               <h4>{{text1}}</h4>
+                                               <input type="text" class="form-control" #prikey value={{private_key}} placeholder="Address"readonly/>
+                                           </div>
+                                           <div class="col-sm-6">
+                                              <h4>{{text2}}</h4>
+                                              <input type="text" class="form-control" value={{account_address}} placeholder="Address"readonly/>
+                                           </div>                          
+                                          
+                                             
+                                         </div> -->
+                                         <!-- <div class="row">
+                                           <div class="col-sm-4"></div>
+                                           <div class="col-sm-5">
+                                              <button class="btn btn-warning" style="margin-top:20px;margin-left:27px;" id="btn" (click)="sign_up(username.value,emailid.value,passwd.value,prikey.value)">&nbsp;<i class="fas fa-user" ></i>&nbsp;&nbsp;signup</button>
+                                           </div>
+                                         </div> -->
+                                       </div>
+                                      
+                                      
+                                      </div> 
+                                   </div>
+                                
+                                   <div  *ngIf="show_account_details"  class="col-sm-6">
+                                      <div class="account-details" >
+                                      </div>
+                                   </div>
+                                </form>
+                             </div>
+                          </div>
+                       </div>
                    </div>
-                </div>
-             </div>
-          </div>
-       </div>
+                 </div>
+                
+                  <!-- col -->
+               </div>
+            <!-- </div> -->
+         </div>
+      <!-- </div> -->
     </div>
-  </div>
   
   
   <br><br>
-    <div class="container-fluid" id="move" style="height: 600px;overflow: auto;text-align: center;text-transform: uppercase" *ngIf="!this.grab.imgshow">
+    <div class="container-fluid" id="move" style="height: 600px;text-align: center;text-transform: uppercase" *ngIf="!this.grab.imgshow">
         <div>
             <span class="blink">RISKFREE ONLINE AUCTIONS, WIN or BUY BRANDED NEW PRODUCTS </span>
            </div>
@@ -191,16 +249,16 @@
                           <hr>
                           <div class="card-body">
                              <div class="card-body" style="text-align: center">
-                                <img   a (click)="this.grabit.imgshow=!this.grabit.imgshow;" class="card-img-top" src={{image.ipfshash}} style="height: 250px;width: 250px" >
+                                <img   a  class="card-img-top" src={{image.ipfshash}} style="height: 250px;width: 250px" >
                              </div>
                            
                              <div class="bid-credit-row">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                           <span class="auction-id" >Auction ID:{{image.Auction_Id}}</span>
+                                           <span class="auction-id" ><span class="subhead">Auction ID:</span>{{image.Auction_Id}}</span>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a class="bid-credit" title="Bid Type">{{image.bidIncrement}}</a>
+                                        <a class="bid-credit" title="Bid Type"><span class="subhead">{{image.bidIncrement}}</span></a>
                                     </div>
                                 </div>
                                
@@ -208,12 +266,12 @@
                             </div>
                              <div class="bid-row cf">
                                 <span class="bid-price">
-                                <label id="Price16720">{{image.Amount}} GRBT</label>
+                                <label id="Price16720" style="margin-top:5px">{{image.Amount}}&nbsp;&nbsp;<span class="subhead">GRBT</span></label>
                                 </span>                              
                              </div>
                              <hr>
                              <div class="card-footer">
-                                <button routerLink="/login" input type="submit"  class="btn btn-warning" id="btn" (click)="check()">&nbsp;&nbsp;&nbsp;BID NOW</button>
+                                <button  input type="submit"  class="btn btn-warning" id="btn" (click)="move()">&nbsp;&nbsp;&nbsp;BID NOW</button>
                              </div>
                           </div>
                        </div>

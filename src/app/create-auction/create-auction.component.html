@@ -1,12 +1,12 @@
-<div class="col-sm-6 auction" style="text-align: center">
+<div class="col-sm-12 auction" style="text-align: center">
   <div class="panel panel-default ">
     <div class="panel-heading" style="color: white"><b>Enter Auction Details</b></div>
     <div class="panel-body">
       <form class="form-inline" style="text-align: center">
         <div class="form-group" style="text-align: right">
           <label for="text">Product Name:</label>&nbsp;&nbsp;&nbsp;
-          <input type="text"  class="form-control" id="productname" #productname autocomplete="off" ><br>          
-          <input type="file" id="fileInput" (change)="onFileChanged($event)">
+          <input type="text"  class="form-control" id="productname" #productname autocomplete="off" ><br><br>
+          <input type="file" id="fileInput" style="margin-left: 38%;" (change)="onFileChanged($event)">
           <br><br><label for="text">Start Time:</label>&nbsp;&nbsp;&nbsp;
           <input type="datetime-local" class="form-control" id="starttime" #starttime autocomplete="off" ><br>
           <br><br><label for="text">End Time:</label>&nbsp;&nbsp;&nbsp;
@@ -27,3 +27,4 @@
     </div>
   </div>
 </div>
+<div><ngx-spinner></ngx-spinner></div>

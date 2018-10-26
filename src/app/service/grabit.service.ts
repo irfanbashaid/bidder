@@ -16,22 +16,47 @@ export class GrabitService {
 
   public  noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
   public _privateKey;
-  public _grabItContractAddress: string = "0x6a4b3fc85e4df2687bff778dfb20d430890cd62e";//"0xb20518f123b8acf672e5be8910e4d39319dc221d";
-  public _etherumAccountAddress ;
+  public _grabItContractAddress: string = "0xb1bca1276fa9f11b6288119e0487ec9aeddcb692";
+  public _etherumAccountAddress;
   public _grabItContract: any;
   public _web3;
   public imgshow:boolean;
+  public prod_zoom={};
+  public isadmin:boolean;
+  
   constructor(private http:HttpClient) {
     this._web3 = new Web3(new Web3.providers.HttpProvider('https://kovan.infura.io/Vr1GWcLG0XzcdrZHWMPu'));//'https://ropsten.infura.io/Vr1GWcLG0XzcdrZHWMPu'
     this._grabItContract = new this._web3.eth.Contract(json,this._grabItContractAddress,{gaslimit:3000000});
-    this.setPrivateKey('b044f80e680c1e9f66adb75ab2708a8b9abdc93073f1d27e5593f4eac425d0b6');
+
   }
 
+  check_admin(){
+    let meta = this;
+    meta.owner().then(owner => {
+      if(meta._etherumAccountAddress==owner){
+        meta.isadmin=true;
+      }
+    })
+  }
 
    storeselectedproduct(selected) {
     return this.http.put(environment.api +'/storeselectedproduct',selected);
   }
  
+  
+public async send_file(fil):Promise<any>{
+  return new Promise((resolve,reject)=>{
+     this.http.post(environment.api+'/createAuction',fil,this.noAuthHeader).subscribe(res=>{
+      console.log(res);
+      resolve(res);
+      
+    },err=>{
+      console.log(err);
+      reject(err);
+      
+    });
+  }) as Promise<any>
+}
 
 public async lastBidderDetails(_aID):Promise<any>{
   return new Promise((resolve,reject)=>{
@@ -53,6 +78,28 @@ public async lastBidderDetails(_aID):Promise<any>{
           resolve('No Bid Logs Found')
         }
         }
+        else{
+          console.log(error)
+        }
+      })
+  }) as Promise<any>;
+ }
+
+
+ 
+public async Particular_bid_details(_aID):Promise<any>{
+  return new Promise((resolve,reject)=>{
+      this._grabItContract.getPastEvents('Bidding',{fromBlock:0, toBlock: 'latest'}, function(error, result){ 
+        if(!error){
+           let array=[];
+           result.find(function(element) {
+            if(element['returnValues'].auctionID == _aID)
+            {
+              array.push(element)
+            }
+          });
+          resolve(array)
+          }
         else{
           console.log(error)
         }
@@ -113,7 +160,7 @@ public async event_Bidding():Promise<any>{
     }) as Promise<any>;
    }
 
-  postUser(user: User){
+  postUser(user:User){
     return this.http.post(environment.api+'/register',user,this.noAuthHeader);
   }
 
@@ -204,9 +251,12 @@ public async event_Bidding():Promise<any>{
     let obj={};
         obj['ipfs_hash']=ipfs_hash;
         obj['product_name']=product_name;
+        console.log("Before posting")
+        console.log(obj)
         this.http.post(environment.api+'/productdetailssave',obj,this.noAuthHeader)
         .subscribe(res=>{
           alert('Stored in DB...')
+          console.log(res)
         },err=>{
           console.log(err);
         })
@@ -228,6 +278,7 @@ public async event_Bidding():Promise<any>{
     return new Promise((resolve, reject) => {
         let obj = instance._web3.eth.accounts.privateKeyToAccount('0x'+privateKey);
         instance._etherumAccountAddress=obj["address"];
+        instance.check_admin();
         resolve(true);
     }) as Promise<boolean>;
   }

@@ -6,18 +6,18 @@
                 <div>
                    <div class="card">
                       <div class="card-header">
-                         <p>{{i.ProductName}}</p>
+                         <h4>{{i.ProductName}}</h4>
                       </div>
                       <hr>
                       <div class="card-body">
-                         <h5 class="card-title">Base Price:{{ i.Amount }} GRBT</h5>
+                         <h5 class="card-title"><span class="subhead"> Base Price:</span>{{ i.Amount }} GRBT</h5>
                          <div class="card-body" style="text-align: center">
-                            <img   a (click)="this.grabit.imgshow=!this.grabit.imgshow;" class="card-img-top" src={{i.Url}} style="height: 250px;width: 250px" alt="Card image cap">
-                         </div>
+                                <img   a (click)="zoom_product(i.ProductName,i.Amount,i.Url,i.Auction_Id,i.bidIncrement,i.last_Bidded_amount,i.Bidder_name,i.buttonbid,i.resetTime)" class="card-img-top" src={{i.Url}} style="height: 250px;width: 250px" alt="Card image cap">
+                             </div>
                          <div class="bid-credit-row">
                              <div class="row">
                                  <div class="col-sm-6">
-                                        <span class="auction-id" >Auction ID:{{i.Auction_Id}}</span>
+                                        <span class="auction-id" ><span class="subhead">Auction ID:</span>{{i.Auction_Id}}</span>
                                  </div>
                                  <div class="col-sm-6">
                                         <a class="bid-credit" title="Bid Type">{{i.bidIncrement}}X</a>
@@ -27,7 +27,7 @@
                             
                          </div>
                          <div class="bid-row cf">
-                            <span class="bid-price">GRBT:
+                            <span class="bid-price" style="font-weight: bold">GRBT:
                             <label id="Price16720"> {{i.last_Bidded_amount}}</label>
                             </span>
                             <div class="bid-status">
@@ -43,7 +43,8 @@
                          </div>
                          <hr>
                          <div class="card-footer">
-                            <button (click)="manualBidding(i.Auction_Id)" class="btn btn-warning" id="btn">&nbsp;&nbsp;&nbsp;BID {{i.buttonbid}} GRBT</button>
+                            <button  (click)="manualBidding(i.Auction_Id)" class="btn btn-warning" id="{{i.buttonbid}}">&nbsp;&nbsp;&nbsp;BID {{i.buttonbid}} GRBT</button>
+                            
                          </div>
                       </div>
                    </div>
@@ -57,3 +58,4 @@
  <div *ngIf="this.grabit.imgshow">
     <app-viewauction></app-viewauction>
  </div>
+ <div><ngx-spinner></ngx-spinner></div>

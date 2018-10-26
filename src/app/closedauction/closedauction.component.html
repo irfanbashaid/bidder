@@ -6,18 +6,18 @@
                 <div>
                    <div class="card">
                       <div class="card-header">
-                         <p>{{image.ProductName}}</p>
+                         <h4>{{image.ProductName}}</h4>
                       </div>
                       <hr>
                       <div class="card-body">
-                            <h5 class="card-title">Base Price: {{ image.Amount }}</h5>
+                            <h5 class="card-title"><span class="subhead">Base Price:</span> {{ image.Amount }}</h5>
                          <div class="card-body" style="text-align: center">
-                            <img   a (click)="this.grabit.imgshow=!this.grabit.imgshow;" class="card-img-top" src={{image.Url}} style="height: 250px;width: 250px" alt="Card image cap">
+                            <img   a (click)="zoom_product(image.ProductName,image.Amount,image.Url,image.Auction_Id,image.bidIncrement,image.Last_Bidded_amount,image.Bidder_name,image.resetTime)" class="card-img-top" src={{image.Url}} style="height: 250px;width: 250px" alt="Card image cap">
                          </div>
                          <div class="bid-credit-row">
                              <div class="row">
                                  <div class="col-sm-6"> 
-                                        <span class="auction-id">Auction ID:{{image.Auction_Id}}</span>
+                                        <span class="auction-id"><span class="subhead">Auction ID:</span>{{image.Auction_Id}}</span>
                                  </div>
                                  <div class="col-sm-6">
                                         <span >{{image.Bidder_name}}</span>
@@ -27,7 +27,7 @@
                             <!-- <a class="bid-credit" title="Number of Require Credits Per BID">5x</a> -->
                          </div>
                          <div class="bid-credit-row2">
-                            <span class="bid-price">Closed at
+                            <span class="bid-price"><span class="subhead">Closed at :</span>
                             <label id="Price16720"> {{image.Last_Bidded_amount}} GRBT</label>
                             </span>
                             <!-- <div class="bid-status">
@@ -56,3 +56,4 @@
  <div *ngIf="this.grabit.imgshow">
     <app-viewauction></app-viewauction>
  </div>
+ 

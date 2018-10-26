@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GrabitService} from '../service/grabit.service';
-import { element } from '@angular/core/src/render3/instructions';
 
 @Component({
  selector: 'app-bidlog',
@@ -25,14 +24,10 @@ export class BidlogComponent implements OnInit {
    let instance = this;
    instance.grabit.event_Bidding().then(result => {
      result.forEach(element=>{
-       console.log(element);
-       
        if(element["returnValues"]["bidder"] == this.eth_address){
          instance.grabit.getAuctionById(element["returnValues"]['auctionID']).subscribe(
            res=>{
              let obj={};
-             console.log(res);
-             
              obj['auctionid'] =element["returnValues"]['auctionID'];
              obj['productname'] = res["productname"];
              obj['amount'] = element["returnValues"]['amount'];

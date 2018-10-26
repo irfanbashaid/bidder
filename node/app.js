@@ -14,6 +14,12 @@ var app = express();
 // middleware
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+   });
+   
 app.use(bodyParser.json({limit: '100mb', extended: true}),
 bodyParser.urlencoded({limit: '100mb', extended: true})
   );

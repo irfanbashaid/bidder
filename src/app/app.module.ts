@@ -50,7 +50,7 @@ import { SelectComponent } from './select/select.component';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes,{useHash: true}),
     HttpClientModule,
     NgxSpinnerModule
   ],

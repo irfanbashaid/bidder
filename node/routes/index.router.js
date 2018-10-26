@@ -20,14 +20,13 @@ const jwtHelper = require('../config/jwtHelper');
 
 router.get('/userProfile',jwtHelper.verifyJwtToken, ctrlUser.userProfile);   
 router.get('/productDetails', ctrlUser.productDetails);    
-router.get('/productsDetails', ctrlUser.productsDetails);
 
 router.post('/register', ctrlUser.register);
 router.post('/authenticate', ctrlUser.authenticate);
 // router.post('/createAuction', upload.single('file'),ctrlUser.createAuction);
 router.get('/userDetails', ctrlUser.userDetails); 
 router.post('/getUserName', ctrlUser.getUserName);
-router.post('/createAuction',upload.any(),ctrlUser.createAuction); //upload.any(),
+// router.post('/createAuction',upload.any(),ctrlUser.createAuction); //upload.any(),
 router.post('/productdetailssave',ctrlUser.productdetailssave); 
 router.post('/changepublickeyapi',ctrlUser.changepublickey)
 router.post('/getAuctionById', ctrlUser.getAuctionById);
@@ -35,7 +34,7 @@ router.post('/getAuctionById', ctrlUser.getAuctionById);
 router.put('/changepassword',ctrlUser.changepassword);
 router.put('/forgotpassword',ctrlUser.forgotpassword);
 router.put('/storeselectedproduct',ctrlUser.showselectedproducts)
-
+router.post('/createAuction',upload.any(),ctrlUser.createAuction); //upload.any(),
 
 module.exports = router;
 

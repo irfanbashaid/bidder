@@ -1,7 +1,7 @@
 .auction{
     background:#fff;
-    border:1px solid #ddd;
-    border-radius:5px;
+    /* border:1px solid #ddd; */
+    /* border-radius:5px; */
     overflow:hidden;
  }
  img{
@@ -9,22 +9,39 @@
  }
  .timer{
     background-color: #eaeaea;
-    height:65px;
+    height:66px;
     width:120px;
     text-align: center;
  }
  .bidbox{
     background-color: #fdfdfd;
     border:1px solid #ddd;
-    height:75px;
+    height:85px;
     width: 320px;
     margin-right:50px;
     text-align: center;
  }
+ .subhead{
+    color: orangered
+}
+
+a, u {
+    text-decoration: none;
+}
+
  .content{
     border: 1px solid #ddd;
     overflow:hidden;
  }
+ /* table {
+    width: 100%;
+} */
+/*  */
+
+.spacemargin{
+    margin: 10px 0 10px 0;
+}
+
  .btn-lg{
     width:276px;
  }

@@ -6,19 +6,19 @@ import { GrabitService } from '../service/grabit.service';
   templateUrl: './upcomingauction.component.html',
   styleUrls: ['./upcomingauction.component.css']
 })
+
 export class UpcomingauctionComponent implements OnInit {
+
   public canshow:boolean;
   public images=[];
-  
-
   public sec_shower:number[]=[];
   public min_shower:number[]=[];
   public hour_shower:number[]=[];
-
+  
   constructor(private grabit:GrabitService) {
-    console.log('Displaying Upcoming Products...')
+    console.log('Displaying Upcoming Bids...')
     this.upcoming_table();
-}
+  }
 
   startTimer(auctionid) {
     let meta =this;
@@ -26,14 +26,14 @@ export class UpcomingauctionComponent implements OnInit {
       meta.grabit.currentTime().then(now_time => {
         let timeLeft = Number(auc_det[0][0]) - Number(now_time);
         meta.sec_shower[auctionid]=timeLeft%60;
-        meta.min_shower[auctionid]=(timeLeft%3600)%60;
+        meta.min_shower[auctionid]=Number((timeLeft/60).toString().split(".")[0]);
         let hours_str:string = (timeLeft/3600).toString();
         let hours= hours_str.split(".");
         meta.hour_shower[auctionid] = Number(hours[0]);
         var looper = setInterval(()=>{
           if(meta.sec_shower[auctionid]!=0){
             meta.sec_shower[auctionid]--;
-          }  
+          }
           else{
             if(meta.hour_shower[auctionid] !=0 || meta.min_shower[auctionid] !=0 ){
               meta.sec_shower[auctionid]=59;
@@ -57,6 +57,21 @@ export class UpcomingauctionComponent implements OnInit {
     })
   }
 
+  zoom_product(ProductName,Amount,Url,Auction_Id,bidIncrement,buttonbid,resetTime){
+    let obj ={};
+    obj["ProductName"]=ProductName;
+    obj["Amount"]=Amount;
+    obj["Url"]=Url;
+    obj["Auction_Id"]=Auction_Id;
+    obj["bidIncrement"]=bidIncrement;
+    // obj["last_Bidded_amount"]=last_Bidded_amount;
+    // obj["Bidder_name"]=Bidder_name;
+    obj["buttonbid"]=buttonbid;
+    obj["resetTime"]=resetTime;
+    this.grabit.prod_zoom = obj;
+    this.grabit.imgshow=!this.grabit.imgshow;
+  }
+
   upcoming_table(){
     this.grabit.getauctiondetails().then(details=>{   
       details[0].forEach(a=>{
@@ -68,6 +83,8 @@ export class UpcomingauctionComponent implements OnInit {
               data['Auction_Id']=details[1][a]['auctionid']
               data['Url']='https://ipfs.infura.io/ipfs/'+details[1][a]['ipfshash'];
               data['ProductName']=details[1][a]['productname'];
+              data['resetTime']=result['resetTime'];
+              data['bidIncrement']=result['bidIncrement'];
               data['Amount']=result['basePrice'];
               this.startTimer(i);
               this.images.push(data);
@@ -77,6 +94,7 @@ export class UpcomingauctionComponent implements OnInit {
       })
     })
   }
+
   ngOnInit() {
   }
 

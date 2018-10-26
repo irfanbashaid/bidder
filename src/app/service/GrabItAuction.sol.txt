@@ -1,4 +1,5 @@
 pragma solidity ^0.4.23;
+
 library SafeMath 
 {
     function add(uint a, uint b) internal pure returns (uint) 
@@ -42,6 +43,7 @@ library SafeMath
 contract Ownable {
     address public owner;
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
     /**
      * @dev The Ownable constructor sets the original `owner` of the contract to the sender
      * account.
@@ -49,6 +51,7 @@ contract Ownable {
     constructor() public{
         owner = msg.sender;
     }
+
     /**
      * @dev Throws if called by any account other than the owner.
      */
@@ -56,6 +59,7 @@ contract Ownable {
         require(msg.sender == owner,"Only owner");
         _;
     }
+
     /**
      * @dev Allows the current owner to transfer control of the contract to a newOwner.
      * @param newOwner The address to transfer ownership to.
@@ -67,16 +71,21 @@ contract Ownable {
     }
 }
 contract Accounts is Ownable{
+
     // Token details
     string public constant name = "GRBT";
     string public constant symbol = "GRBT";
+
     uint8 public constant decimals = 1;
+
     using SafeMath for uint;
     event Mint(address indexed to, uint256 amount);
     event Transfer(address indexed from, address indexed to, uint256 value);
+
     uint256 public tokensMinted = 0;
     mapping(address => uint256) balances;
     //event Withdrawn(address beneficiary,uint256 amount);
+
     
     /**
     * @dev Gets the balance of the specified address.
@@ -85,15 +94,18 @@ contract Accounts is Ownable{
     function balanceOf() public view returns (uint256 accountbalance) {
         return balances[msg.sender];
     }    
+
     function transfer(address _to, uint256 _value) public returns(bool) {
         require(_to != address(0),"Invalid Address");
         require(_value <= balances[msg.sender],"No Balance");
+
         // SafeMath.sub will throw if there is not enough balance.
         balances[msg.sender] = balances[msg.sender].sub(_value);
         balances[_to] = balances[_to].add(_value);
         emit Transfer(msg.sender, _to, _value);
         return true;
     }
+
     function mint(address _to, uint256 _tokens) public onlyOwner returns(bool) {
         /** Modified to handle multiple capped crowdsales */
         //uint256 amt = _amount * 1 ether;
@@ -123,8 +135,8 @@ contract GrabItAuction is Ownable, Accounts
         uint256[] lastBidDetails; //last bid amt, last bid time
     }
     /*
-        auction id, unique id, base price,bid increment, start, end,min bid, 
-    last bid amt, last bid time, bidding interval, last bidder
+    	auction id, unique id, base price,bid increment, start, end,min bid, 
+	last bid amt, last bid time, bidding interval, last bidder
      */
     mapping(uint256 => auction) _auctions;
     uint256[] _auctionList;
@@ -146,6 +158,7 @@ contract GrabItAuction is Ownable, Accounts
         //createAuction(now.add(60),now.add(720),10000,100,100,20);
         //mint(owner,100000);
     }
+
     function currentTime() public view returns(uint256){
         return now;
     }
@@ -164,6 +177,7 @@ contract GrabItAuction is Ownable, Accounts
         require(_bidIncrement > 0, "Bid Increment should be > 0");
         require(_minBid >= _bidIncrement, "Min Bid should be >= Bid increment");
         require(_resetTime > 0, "Bidding Interval should be > 0");
+
         auctionID = auctionID.add(1);
         _auctions[auctionID].times = [_startTime,_endTime];
         _auctions[auctionID].basePrice = _basePrice;
@@ -198,6 +212,7 @@ contract GrabItAuction is Ownable, Accounts
             _bids[_aID][msg.sender].amount
         );
     }
+
     function auctionList() public view returns(uint256[]){
         return _auctionList;
     }
@@ -220,19 +235,24 @@ contract GrabItAuction is Ownable, Accounts
         require(_auctions[_aID].times[1] >= now, "Auction ended");
         require(_amount <= _auctions[_aID].basePrice, "Amount should be < baseprice");
         require(_amount >= _auctions[_aID].minBid, "Amount should be > minbid");
+
         _bids[_aID][msg.sender].amount = _amount;
         _bids[_aID][msg.sender].auctionID = _aID;
+
         _auctions[_aID].lastBidDetails[0] = _amount;
         _auctions[_aID].lastBidDetails[1] = now;
         _auctions[_aID].lastBidder = msg.sender;
         _auctions[_aID].times[1] = _auctions[_aID].times[1].add(_auctions[_aID].resetTime);
+
         
         emit Bidding(msg.sender, _aID, _amount, _auctions[_aID].times[1]);
         transfer(owner, _amount);
+
         return true;
     }
     function finalizeAuction(uint256 _aID) public payable onlyOwner returns(bool){
         require(_auctions[_aID].status == 0,"Auction ended");
+
         _auctions[_aID].status = 1;
         emit AuctionFinalized(_aID,_auctions[_aID].lastBidder,_auctions[_aID].lastBidDetails[0]);
         return true;
